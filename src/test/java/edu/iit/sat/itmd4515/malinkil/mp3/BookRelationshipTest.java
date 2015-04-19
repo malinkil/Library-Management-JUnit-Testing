@@ -100,7 +100,7 @@ public class BookRelationshipTest {
         }
         
         // Updating STOCK_DETAILS
-        StockDetails st = em.find(StockDetails.class, 26);
+        StockDetails st = em.find(StockDetails.class, 1);
         Tx.begin();
         
         
@@ -137,7 +137,7 @@ public class BookRelationshipTest {
         
         
         // Updating BOOK_CLASSIFICATION
-        BookClassification v = em.find(BookClassification.class, 2);
+        BookClassification v = em.find(BookClassification.class, 1);
         Tx.begin();
         
         v.setBookType("Chemistry");
@@ -267,33 +267,33 @@ public class BookRelationshipTest {
             
         }
         
-        Tx.begin();
-        // Removing values and checking assert condition
-        for(VendorDetails r : updateVendor)
-        {
-            em.remove(r);
-        }
-        
-        for(BookDetails dt : update)
-        {
-            em.remove(dt);
-        }
-        
-        for(BookPurchaseDetails pu : bpd )
-        {
-            em.remove(pu);
-        }
-        
-        for(BookClassification cls : afterUpdate)
-        {
-            em.remove(cls);
-        }
-        
-        for(StockDetails sl : stockAfterUpdate )
-        {
-            em.remove(sl);
-        }
-        
+//        Tx.begin();
+//        // Removing values and checking assert condition
+//        for(VendorDetails r : updateVendor)
+//        {
+//            em.remove(r);
+//        }
+//        
+//        for(BookDetails dt : update)
+//        {
+//            em.remove(dt);
+//        }
+//        
+//        for(BookPurchaseDetails pu : bpd )
+//        {
+//            em.remove(pu);
+//        }
+//        
+//        for(BookClassification cls : afterUpdate)
+//        {
+//            em.remove(cls);
+//        }
+//        
+//        for(StockDetails sl : stockAfterUpdate )
+//        {
+//            em.remove(sl);
+//        }
+//        
         List<VendorDetails> deleteVendors = em.createQuery("select d from VendorDetails d").getResultList();
         assertTrue(deleteVendors.isEmpty());
         
